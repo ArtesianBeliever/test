@@ -38,6 +38,7 @@ namespace WebApplication1.Controllers
             var id = Enumerable.Range(1, maxId + 1).Except(_context.Teams.Select(x => x.Id)).First();
             team.Id = id;
             _context.Teams.Add(team);
+            
             await _context.SaveChangesAsync();
             return Ok(_context.Teams.ToList());
         }
